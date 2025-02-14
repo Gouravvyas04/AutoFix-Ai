@@ -1,0 +1,225 @@
+/* Reset & Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Light Mode */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* Main Layout */
+main {
+  height: 100vh;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Left & Right Sections */
+main .left,
+main .right {
+  flex: 1;
+  border-radius: 0.7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Left Section */
+main .left {
+  background-color: #e0e0e0;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Dark Mode for Left Section */
+body.dark-mode main .left {
+  background-color: rgb(71, 70, 70);
+}
+
+/* Code Editor */
+.left .code {
+  flex-grow: 1;
+  width: 100%;
+}
+
+/* Review Button */
+main .left .review {
+  background-color: rgb(232, 232, 234);
+  color: #000000;
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+main .left .review:hover {
+  background-color: rgb(204, 204, 206);
+}
+
+/* Right Section */
+main .right {
+  background-color: #e0e0e0;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark Mode for Right Section */
+body.dark-mode main .right {
+  background-color: #757373;
+}
+
+/* Output Section */
+.output {
+  flex-grow: 1;
+  width: 100%;
+  padding: 1rem;
+  overflow-y: auto;
+  word-wrap: break-word;
+  background: #f8f8f8;
+  color: #222;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Dark Mode for Output */
+body.dark-mode .output {
+  background: #333;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(145deg, #f0f0f0, #dcdcdc);
+  border: 1.8px solid #b3b3b3;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: black;
+  padding: 0.6rem;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark Mode Button Style */
+body.dark-mode .theme-toggle {
+  background: linear-gradient(145deg, #222, #333);
+  border: 1.8px solid #444;
+  color: white;
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Hover Effect */
+.theme-toggle:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    height: 50%;
+  }
+
+  .review {
+    align-self: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .output {
+    height: 100%;
+  }
+}
+
+.app-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #222, #444);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: "Fira Code", monospace;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeOut 2.5s ease-in-out forwards;
+}
+
+/* AutoFix AI Text Styling */
+.app-preloader p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #00ff99;
+  margin-top: 10px;
+}
+
+/* Subtext color */
+.app-preloader span {
+  color: #ffb86c;
+  /* Amber color for AutoFix AI */
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
