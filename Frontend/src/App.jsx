@@ -30,7 +30,7 @@ function App() {
     setReview("");
 
     try {
-      const response = await axios.post("https://autofix-ai.onrender.com", { code });
+      const response = await axios.post("https://autofix-ai-backend.onrender.com", { code });
       setReview(response.data);
     } catch (error) {
       console.error("Error reviewing code:", error);
